@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Sons do Batt AK</title>
+  <link rel="icon" href="bat.ico.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: white;
+    }
+
+    .bat {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/4/45/Bat_silhouette.svg') no-repeat center;
+      background-size: contain;
+      animation: fly 15s linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translateX(-100vw) translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateX(100vw) translateY(-100px) rotate(360deg);
+      }
+    }
+
+    .login-box {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      z-index: 2;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #1ed760;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: #1ed760;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-box button:hover {
+      background-color: #17b64b;
+    }
+
+    .login-box a {
+      color: #ccc;
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Morcegos (JS cria vários) -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const bat = document.createElement("div");
+      bat.classList.add("bat");
+      bat.style.top = Math.random() * 100 + "%";
+      bat.style.left = Math.random() * 100 + "%";
+      bat.style.animationDelay = `${Math.random() * 10}s`;
+      bat.style.opacity = Math.random() * 0.5 + 0.1;
+      bat.style.transform = `scale(${Math.random() + 0.5})`;
+      document.body.appendChild(bat);
+    }
+  </script>
+
+  <!-- Formulário de Login -->
+  <div class="login-box">
+    <h2>Entrar no Sons do Batt AK</h2>
+    <form id="loginForm">
+      <input type="text" id="usuario" placeholder="Usuário" required />
+      <input type="password" id="senha" placeholder="Senha" required />
+      <button type="submit">Entrar</button>
+      <a href="cadastro.html">Ainda não tem conta? Cadastre-se</a>
+    </form>
+  </div>
+
+  <!-- Script de Autenticação -->
+  <script src="auth.js"></script>
+</body>
+</html>
+
+
